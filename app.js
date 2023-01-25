@@ -9,11 +9,18 @@ fruits.forEach(doubleName)
 // .then(res=>res.json())
 // .then(json=>console.log(json))
 
-// GET QUOTES FROM AN API
+//---------- GET QUOTES FROM AN API ----------//
+// DEFINE QUOTE VARIABLES AND FUNCTIONS
+// ------variables
 let apiQuotes = [];
 let singleQuote = {};
-// DEFINE QUOTE SELECTION FUNCTION
+const quoteContainer = document.getElementById('quote-container')
+const quoteText = document.getElementById('quote-text')
+const quoteAuthor = document.getElementById('quote-author')
+const quoteButton = document.getElementById('quote-button')
+const twitterButton = document.getElementById('twitter-button');
 
+//-----functions
 async function getQuotes(){
     const apiUrl = 'https://jacintodesign.github.io/quotes-api/data/quotes.json';
     try{
@@ -30,9 +37,30 @@ async function getQuotes(){
 function newQuote(){
     // PICK A RANDOM QUOTE
     const quote = apiQuotes[Math.floor(Math.random()*apiQuotes.length)];
-    // let quote = apiQuotes[2];
-    console.log(quote)
+    if(!quote.author){
+        quoteAuthor.textContent = "Unknown";
+    }else{
+        quoteAuthor.textContent = quote.author;
+    }
+    if(quote.text.length > 120){
+        quoteText.classList.add('text-xl')
+    }else{
+        quoteText.classList.remove('text-xl')
+
+    }
+    quoteText.textContent = quote.text;
 }
 
-newQuote()
+// -----tweet quote function
+function tweetQuote(){
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} -${quoteAuthor.textContent}`;
+    window.open(twitterUrl, '_blank')
+}
+
+
+// -----event listeners
+quoteButton.addEventListener('click', newQuote);
+twitterButton.addEventListener('click', tweetQuote)
+
+// newQuote()
 getQuotes()

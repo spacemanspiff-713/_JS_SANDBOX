@@ -20,19 +20,20 @@
             </nav>
         </section>
         <section class="hero flex items-center justify-center">
-            <div class="quote-container py-8 px-10 bg-white/30 rounded-2xl shadow-2xl cstm-backdrop-blur-sm" id="quote-container">
-                <div class="quote-text text-5xl">
+            <div class="quote-container py-8 px-10 bg-white/30 rounded-2xl shadow-2xl cstm-backdrop-blur-sm w-9/12 max-w-7xl" id="quote-container">
+                <div class="quote-text text-2xl text-center">
                     <i class="fas fa-quote-left"></i>
-                    <span class="" id="quote">All that will ever be, will be!</span>
+                    <span class="text-center" id="quote-text">All that will ever be, will be!</span>
+                    <i class="fas fa-quote-right"></i>
                 </div>
-                <div class="quote-author">
-                    <span class="author text-2xl">- Jason Trimble</span>
+                <div class="quote-author text-end">
+                    <span>- </span><span class="author text-xl" id="quote-author">- Jason Trimble</span>
                 </div>
                 <div class="button-container flex justify-between py-4">
                     <button class="twitter text-lg	cursor-pointer" id="twitter" title="Tweet this!">
-                        <i class="fab fa-twitter rounded bg-black text-white px-5 py-1 quote-button hover:shadow-none hover:translate-y-1"></i>
+                        <i class="fab fa-twitter rounded bg-black text-white px-5 py-1 quote-button hover:shadow-none hover:translate-y-1" id="twitter-button"></i>
                     </button>
-                    <button class="new-quote text-lg cursor-pointer	rounded bg-black text-white px-5 py-1 quote-button hover:shadow-none hover:translate-y-1">New Quote</button>
+                    <button id="quote-button" class="new-quote text-lg cursor-pointer	rounded bg-black text-white px-5 py-1 quote-button hover:shadow-none hover:translate-y-1">New Quote</button>
                 </div>
             </div>
         </section>
